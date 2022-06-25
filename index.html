@@ -2,17 +2,19 @@
 <html>
 
 <!-- 
+  NOTE: Press "space" to freeze/continue the title animation!
+ -->
+
+<!-- 
   SVG Text Animator: https://akashraj9828.github.io/svg-text-animation-generator/
     => Font: lily script one
     => Size: 120
  -->
 
 <!-- 
-
   The Fountain Dream :) <3
     
     A fountain that quenched every thirst, healed the sick, and radiated love. A beautiful spirit that cared for the world with all of its imperfections. An impossible combination of the loving and understanding — caring in spite of seeing that which many would consider irreprehensible, comprehending of the complexity that is life, and focused on healing and recuperation — in effect quenching the thirst of a need for satisfaction and meaning — rather than taking a surface level view/judgment of all that which presents itself to its shores. All accepting of those that come to the fountain, the spirit seeks only to nourish, sustain, and heal those that seek its help rather than to affect an imposition of its own will upon the sick in order to brutalize them into submission to an alternative ideal. So brilliant as to blind the unprepared, an incomparable and incomprehensible light underlies the fountain, by which the blossoming of thousands of lotus flowers are made true. A glorification to be sure, and yet somehow still insufficient. Next to fountains of honey and wine, the spirit dwelled — ever loving, ever satisfying, ever understanding — a true manifestation of all that which one ought to strive to be in this realm of reality. With radiant eyes, a shining smile, and a brilliant laugh, she oversaw the recuperation of trillions across universes. A palace of marble with three primary sections and minarets with a floor of 3/4-trimmed grass and a sky of unfathomable colors draped the background, with scores of trumpets serving as background music to the majesty of this other world. A circumscribing forest of impenetrable density and impossibly tall trees made for a border, with vines and roots and trunks and flowers and fruits of gargantuan size intertwining to form a wall of vegetation, save for a cobblestone tunnel through the plants that served as the entrance to the majestic plane from an elevated pool encircled by golden/silver/platinum/copper twine containing swirling pale blue and light red (nearly pinkish) souls.
-    
   -->
 
 <!----------------------------------------------------------------------------
@@ -128,6 +130,7 @@
  ---------------------------------------------------------------------------->
 
 <script>
+  // SVG animation logic
   function setTextAnimation(delay, duration, strokeWidth, timingFunction, strokeColor,repeat) {
     let paths = document.querySelectorAll("path");
     let mode=repeat?'infinite':'forwards'
@@ -142,6 +145,18 @@
       path.style["animation-delay"] = `${i * delay}s`;
     }
   }
+
+  // Have the animation repeat by default
   setTextAnimation(0.1,3.2,2,'linear','#ffffff',true);
+
+  // Press "space" to freeze/continue the animation logic
+  let repeatAnimation = true;
+  document.onkeypress = function(e) {
+    e = e || window.event;
+    if(e.keyCode == 32) {
+      repeatAnimation = !repeatAnimation;
+      setTextAnimation(0.1,3.2,2,'linear','#ffffff',repeatAnimation);
+    }
+  };
 </script>
 </html>
