@@ -6,6 +6,8 @@
  -->
 
 <!-- 
+  HEIF to PNG image converter: https://convertio.co/heif-png/
+
   SVG Text Animator: https://akashraj9828.github.io/svg-text-animation-generator/
     => Font: lily script one
     => Size: 100
@@ -123,7 +125,21 @@
   Jordan Randleman
   </p>
 
+  <img id="img1" style="position:absolute;top: 10px;right: 0px;" src="https://i-love-you-eerina.github.io/pic/1.png" width="128" height="128">
+  <img id="img2" style="position:absolute;top: 10px;right: 0px;" src="https://i-love-you-eerina.github.io/pic/2.png" width="128" height="128">
+
 </body>
+
+<!----------------------------------------------------------------------------
+ Image positioning script
+ ---------------------------------------------------------------------------->
+
+<script>
+  const PICTURE_SIDE_LENGTH = 128;
+
+  document.getElementById("img1").style.right = `${document.body.offsetWidth-PICTURE_SIDE_LENGTH}px`;
+  document.getElementById("img2").style.right = `${document.body.offsetWidth-PICTURE_SIDE_LENGTH*2}px`;
+</script>
 
 <!----------------------------------------------------------------------------
  "I <3 U Eerina :)" animation script
